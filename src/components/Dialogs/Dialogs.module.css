@@ -1,0 +1,9 @@
+.dialogs{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+.dialogs a{
+    text-decoration: none;
+    color: white;
+}
