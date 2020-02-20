@@ -5,8 +5,8 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-    let dialogsArr = props.dialogs.map( (d) => <DialogItem name={d.name} id={d.id} />);
-    let messagesArr = props.messages.map( (m) => <Message message={m.message} id={m.id} />);
+    let dialogsArr = props.dialogsPage.dialogs.map( (d) => <DialogItem name={d.name} id={d.id} />);
+    let messagesArr = props.dialogsPage.messages.map( (m) => <Message message={m.message} id={m.id} />);
     let textareaElement = React.createRef();
     let sendMessage = () => {
         props.sendMessage();
@@ -23,7 +23,7 @@ const Dialogs = (props) => {
                 {messagesArr}
             </div>
             <div>
-                <textarea ref={textareaElement} onChange={updateNewTextMessage} placeholder='Write' value={props.messageText}></textarea>
+                <textarea ref={textareaElement} onChange={updateNewTextMessage} placeholder='Write' value={props.dialogsPage.messageText}></textarea>
                 <button onClick={sendMessage}>Send</button>
             </div>
         </div>
