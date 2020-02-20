@@ -24,7 +24,7 @@ let store = {
                 { id: 4, message: 'Hi' },
                 { id: 5, message: 'Hi' },
             ],
-            messageText: '',
+            messageText: 'hello',
         },
     },
     subscribe(observer) {
