@@ -5,8 +5,8 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-    let dialogsArr = props.dialogsPage.dialogs.map( (d) => <DialogItem name={d.name} id={d.id} />);
-    let messagesArr = props.dialogsPage.messages.map( (m) => <Message message={m.message} id={m.id} />);
+    let dialogsArr = props.dialogsPage.dialogs.map( (d) => <DialogItem name={d.name} key={d.id} id={d.id} />);
+    let messagesArr = props.dialogsPage.messages.map( (m) => <Message message={m.message} key={m.id} />);
     let textareaElement = React.createRef();
     let sendMessage = () => {
         props.sendMessage();
