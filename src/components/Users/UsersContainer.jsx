@@ -1,7 +1,7 @@
 import React from 'react';
 import Users from './Users';
 import {connect} from 'react-redux';
-import { followAC, unfollowAC, setUsersAC, setPageAC, getTotalUsersAC, toggleIsFetchingAC } from '../../redux/usersReducer';
+import { follow, unfollow, setUsers, setPage, getTotalUsers, toggleIsFetching } from '../../redux/usersReducer';
 import * as axios from 'axios';
 import Preloader from '../../common/Preloader';
 
@@ -49,26 +49,33 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching,
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userId) => {
-            dispatch(followAC(userId));
-        },
-        unfollow: (userId) => {
-            dispatch(unfollowAC(userId));
-        },
-        setUsers: (users) => {
-            dispatch(setUsersAC(users));
-        },
-        setPage: (page) => {
-            dispatch(setPageAC(page));
-        },
-        getTotalUsers: (totalUsers) => {
-            dispatch(getTotalUsersAC(totalUsers));
-        },
-        toggleIsFetching: (isFetching) => {
-            dispatch(toggleIsFetchingAC(isFetching));
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         follow: (userId) => {
+//             dispatch(followAC(userId));
+//         },
+//         unfollow: (userId) => {
+//             dispatch(unfollowAC(userId));
+//         },
+//         setUsers: (users) => {
+//             dispatch(setUsersAC(users));
+//         },
+//         setPage: (page) => {
+//             dispatch(setPageAC(page));
+//         },
+//         getTotalUsers: (totalUsers) => {
+//             dispatch(getTotalUsersAC(totalUsers));
+//         },
+//         toggleIsFetching: (isFetching) => {
+//             dispatch(toggleIsFetchingAC(isFetching));
+//         }
+//     }
+// }
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setPage,
+    getTotalUsers,
+    toggleIsFetching,
+})(UsersContainer);
